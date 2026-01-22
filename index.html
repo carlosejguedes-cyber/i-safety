@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>I-SAFETY | Hospital Lisboa Oriental</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0f4b6e;
+  color:white;
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  padding:35px 20px;
+}
+
+.header img{
+  height:70px;
+  margin-bottom:20px;
+}
+
+.title-main{
+  font-size:18px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.title-sub{
+  font-size:14px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin-top:6px;
+  opacity:0.9;
+}
+
+/* GRID */
+.menu{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:60px;
+  max-width:1100px;
+  margin:80px auto 60px;
+}
+
+/* BOTÕES */
+.circle-btn{
+  text-align:center;
+  cursor:pointer;
+}
+
+.circle{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background: conic-gradient(#6bd0d3 75%, #2a6f89 0);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto;
+  transition: transform 0.2s;
+}
+
+.circle-inner{
+  width:105px;
+  height:105px;
+  background:#0f4b6e;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.circle i{
+  font-size:36px;
+  color:white;
+}
+
+.circle-btn:hover .circle{
+  transform: scale(1.08);
+}
+
+.circle-btn span{
+  display:block;
+  margin-top:18px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+
+/* DASHBOARD */
+#dashboard{
+  display:none;
+  padding:30px;
+  text-align:center;
+}
+
+iframe{
+  width:100%;
+  height:80vh;
+  border:none;
+  border-radius:12px;
+}
+
+.back-btn{
+  margin-bottom:20px;
+  background:#6bd0d3;
+  color:#0f4b6e;
+  border:none;
+  padding:12px 24px;
+  font-weight:bold;
+  border-radius:25px;
+  cursor:pointer;
+}
+</style>
+
+<script>
+function abrirDashboard(){
+  document.getElementById('menu').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+}
+
+function voltarMenu(){
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('menu').style.display = 'grid';
+}
+</script>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <img src="https://mespmotaengils.sharepoint.com/sites/WORKS_PT_12351-2000/08/8.1%20PSS%20e%20Anexos/DPSS_08-2024/38%20RELAT%C3%93RIO%20MENSAL/EMP/I%20Safety/transparent-logo.png">
+  <div class="title-main">PLATAFORMA DE GESTÃO DE SEGURANÇA</div>
+  <div class="title-sub">HOSPITAL LISBOA ORIENTAL</div>
+</div>
+
+<!-- MENU -->
+<div class="menu" id="menu">
+
+  <div class="circle-btn">
+    <div class="circle"><div class="circle-inner"><i class="fas fa-list"></i></div></div>
+    <span>Dados Adicionais</span>
+  </div>
+
+  <div class="circle-btn">
+    <div class="circle"><div class="circle-inner"><i class="fas fa-user-graduate"></i></div></div>
+    <span>Formação</span>
+  </div>
+
+  <div class="circle-btn">
+    <div class="circle"><div class="circle-inner"><i class="fas fa-clock"></i></div></div>
+    <span>Horas Trabalhadas</span>
+  </div>
+
+  <!-- DASHBOARD EMBUTIDO -->
+  <div class="circle-btn" onclick="abrirDashboard()">
+    <div class="circle"><div class="circle-inner"><i class="fas fa-arrow-trend-up"></i></div></div>
+    <span>Dashboard</span>
+  </div>
+
+  <div class="circle-btn">
+    <div class="circle"><div class="circle-inner"><i class="fas fa-gear"></i></div></div>
+    <span>Equipamentos</span>
+  </div>
+
+  <div class="circle-btn">
+    <div class="circle"><div class="circle-inner"><i class="fas fa-file-circle-exclamation"></i></div></div>
+    <span>Relatório de Acidentes</span>
+  </div>
+
+  <div class="circle-btn">
+    <div class="circle"><div class="circle-inner"><i class="fas fa-folder-open"></i></div></div>
+    <span>Gestão Documental</span>
+  </div>
+
+</div>
+
+<!-- DASHBOARD POWER BI -->
+<div id="dashboard">
+  <button class="back-btn" onclick="voltarMenu()">← Voltar ao Menu</button>
+
+  <iframe 
+    src="https://app.powerbi.com/reportEmbed?reportId=c074d459-2f10-45f2-bbc1-25cec3833e13&autoAuth=true&ctid=e8ff29bf-b796-4b27-91e1-28784df16151"
+    allowfullscreen>
+  </iframe>
+</div>
+
+</body>
+</html>
